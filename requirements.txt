@@ -1,2 +1,2 @@
 pylint
-pep8
+pycodestyle
