@@ -7,4 +7,4 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script:
-  - pylint --errors-only week1
+  - pylint --errors-only week1 && pep8 week1
