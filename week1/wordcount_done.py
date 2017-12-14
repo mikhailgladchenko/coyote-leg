@@ -1,26 +1,24 @@
 import sys
 def get_dictionary(filename):
-    file = open(filename, "r")
-    content = file.read()
-    words = (list(content.split()))
-    d = dict.fromkeys(words, 0)
-    for word in words:
-        if word in d: d[word] +=1
-    file.close()
-    return d
+    with open(filename, "r") as file:
+        content = file.read()
+        words =content.split()
+        words_dict = dict.fromkeys(words, 0)
+        for word in words: words_dict[word]+=1
+        return words_dict
 def print_words(filename):
-    d=get_dictionary(filename)
-    r = sorted(d.keys())
-    for lentry in r: print(lentry +":"+str(d[lentry]))
+    dict=get_dictionary(filename)
+    sorted_keys_list= sorted(dict.keys())
+    for key in sorted_keys_list: print(key +":"+str(dict[key]))
 def print_top(filename):
-    d=get_dictionary(filename)
-    r = sorted(d.keys())
-    t=()
-    l=[]
-    for lentry in r:
-      t=(lentry,d[lentry])
-      l.append(t)
-    sorted_by_second = sorted(l, key=lambda tup: tup[1], reverse=True)
+    dict=get_dictionary(filename)
+    sorted_keys_list= sorted(dict.keys())
+    tuple_to_add=()
+    list_to_sort=[]
+    for key in sorted_keys_list:
+      tuple_to_add=(key,dict[key])
+      list_to_sort.append(tuple_to_add)
+    sorted_by_second = sorted(list_to_sort, key=lambda tup: tup[1], reverse=True)
     top10=sorted_by_second[:10]
     for tentry in top10: print(tentry[0] + ":" + str(tentry[1]))
 def main():
