@@ -2,8 +2,6 @@ class Matrix:
     def __init__(self, matrix_list):
         self.rows = matrix_list
 
-    def print(self):
-        print('\n'.join(' '.join(map(str, sl)) for sl in self.rows))
 
     def __str__(self):
         return '\n'.join(' '.join(map(str, sl)) for sl in self.rows)
@@ -58,7 +56,7 @@ class Matrix:
 
 
 def main():
-    print("testing-")
+
     la = [[1, 3], [2, 5]]
     lb = [[1, 0], [0, 1]]
     lc = [[1, 3], [2, 5]]
@@ -66,26 +64,23 @@ def main():
     le = [[1, 2, 3], [4, 5, 6]]
     lf = [[13, 17, 21], [22, 29, 36]]
     a = Matrix(la)
-    a.print()
-    print("testing str")
-    str(a)
+    print(str(a))
     b = Matrix(lb)
-    b.print()
-    str(b)
+    print(str(b))
     c = Matrix(lc)
-    c.print()
+
     d = Matrix(ld)
-    d.print()
+
     e = Matrix(le)
-    e.print()
+
     f = Matrix(lf)
-    f.print()
+
     m = a*e
-    m.print()
+
     z = Matrix.zeros(3, 3)
-    z.print()
+    print(str(z))
     i = Matrix.identity(3, 3)
-    i.print()
+    print(str(i))
     print("a*b=a"+":"+str(a*b == a))
     print("b*b=b"+":"+str(b*b == b))
     print("b*e=f" + ":" + str(a*e == f))
