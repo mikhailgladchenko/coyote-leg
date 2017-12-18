@@ -53,8 +53,8 @@ def print_words(filename):
 def print_top(filename):
     cnt = get_counter(filename)
     most_common_list = cnt.most_common(10)
-    for i in range(len(most_common_list)):
-        print(str(most_common_list[i][0])+":"+str(most_common_list[i][1]))
+    for word, cnt in most_common_list:
+        print("{0}: {1}".format(word, cnt))
 
 
 def main():
