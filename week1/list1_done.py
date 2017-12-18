@@ -45,8 +45,8 @@ def test(got, expected):
 
 
 def front_x_with_lambda(words):
-    list_with_x = list(filter(lambda x: (x.startswith("x")), words))
-    other_list = list(filter(lambda x: (not x.startswith("x")), words))
+    list_with_x = list(filter(lambda x: x.startswith("x"), words))
+    other_list = list(filter(lambda x: not x.startswith("x"), words))
     return sorted(list_with_x)+sorted(other_list)
 
 
