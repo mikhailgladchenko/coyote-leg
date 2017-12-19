@@ -12,10 +12,8 @@ def match_ends_with_lambda(words):
 
 
 def match_ends_without_lambda(words):
-    list_to_return = []
-    for word in words:
-        if (len(word) >= 2) and (word[0] == word[-1]):
-            list_to_return.append(word)
+    list_to_return = [[w] for w in words if len(w) >= 2 and w[0] == w[-1]]
+
     return len(list_to_return)
 
 
