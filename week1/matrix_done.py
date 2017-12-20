@@ -23,7 +23,10 @@ class Matrix:
         co = len(other.rows[0])
         cs = len(self.rows[0])
         rs = len(self.rows)
-
+        if not Matrix.isvalid(self):
+            raise ValueError("cannot multiply matrices,first operand matrix is not valid matrix")
+        if not Matrix.isvalid(other):
+            raise ValueError("cannot multiply matrices,second operand is not valid matrix")
         m = Matrix.zeros(ro, co)
         if ro != cs:
             raise ValueError("cannot multiply matrices with not matching columns and rows")
@@ -32,19 +35,19 @@ class Matrix:
                 for j in range(co):
                     summa = 0
                     for k in range(cs):
-                        summa = summa+self.rows[i][k]*other.rows[k][j]
+                        summa += self.rows[i][k]*other.rows[k][j]
                         m.rows[i][j] = summa
         return m
 
-    @staticmethod
-    def zeros(r, c):
+    @classmethod
+    def zeros(cls, r, c):
         m = Matrix([])
         rows = [[0]*c for x in range(r)]
         m.rows = rows
         return m
 
-    @staticmethod
-    def identity(r, c):
+    @classmethod
+    def identity(cls, r, c):
         if r != c:
             raise ValueError("cannot create identity for not squared matrix")
         else:
@@ -52,6 +55,19 @@ class Matrix:
             for i in range(r):
                 m.rows[i][i] = 1
         return m
+
+    @classmethod
+    def isvalid(cls, matrix):
+        cm = len(matrix.rows[0])
+        rm = len(matrix.rows)
+        ret = True
+        for i in range(rm):
+            for j in range(cm):
+                try:
+                    temp = matrix.rows[i][j]
+                except IndexError:
+                    ret = False
+        return ret
 
 
 def main():
@@ -67,23 +83,26 @@ def main():
     b = Matrix(lb)
     print(str(b))
     c = Matrix(lc)
-
+    print(str(c))
     d = Matrix(ld)
 
     e = Matrix(le)
 
     f = Matrix(lf)
 
-    m = a*e
-
-    z = Matrix.zeros(3, 3)
-    print(str(z))
-    i = Matrix.identity(3, 3)
-    print(str(i))
     print("a*b=a"+":"+str(a*b == a))
     print("b*b=b"+":"+str(b*b == b))
     print("b*e=f" + ":" + str(a*e == f))
     print("a+b=d" + ":" + str(a+b == d))
+
+    la1 = [1, 2], [2, 3]
+    lb1 = [[1, 2, 3], [2, 3]]
+    a1 = Matrix(la1)
+    print(str(a1))
+    b1 = Matrix(lb1)
+    print(str(b1))
+    c1 = a1*b1
+    print(str(c1))
 
 
 if __name__ == '__main__':
