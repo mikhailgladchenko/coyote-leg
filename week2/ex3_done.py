@@ -70,8 +70,7 @@ class CustomCounter(collections.abc.MutableMapping):
 
 def main():
     def mutator(s):
-        # Asterisks are easier to print than '\ue000'.
-        return '*' + s + '*'
+        return s
 
     words = 'the lazy fox jumps over the brown dog'.split()
 
