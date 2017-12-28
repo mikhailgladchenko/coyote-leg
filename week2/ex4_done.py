@@ -34,7 +34,8 @@ class User:
 def main():
     users = [User("mikhail", 57), User("marina", 55), User("alexandra", 19), User("mikhail", 31)]
     print(users)
-    print(sorted(users))
+    sorted_users_by_age = sorted(users)
+    print(sorted_users_by_age)
 
 
 if __name__ == '__main__':
