@@ -21,7 +21,7 @@ class User:
         return not (self == other)
 
     def __lt__(self, other):
-        return (self.name, self.age) < (other.name, other.age)
+        return self.age < other.age
 
     @staticmethod
     def cmp(x, y):
@@ -32,7 +32,7 @@ class User:
 
 
 def main():
-    users = [User("mikhail", 57), User("marina", 55), User("alexandra", 19)]
+    users = [User("mikhail", 57), User("marina", 55), User("alexandra", 19), User("mikhail", 31)]
     print(users)
     print(sorted(users))
 
