@@ -11,13 +11,7 @@ def _identity(s):
 
 
 class CustomCounter(collections.abc.MutableMapping):
-    """
-    Overrides the 5 methods of a MutableMapping:
-    __getitem__, __setitem__, __delitem__, __iter__, __len__
 
-    ...and the 3 non-Mapping methods of Counter:
-    elements, most_common, subtract
-    """
 
     def __init__(self, values=None, *, mutator=_identity):
         self._mutator = mutator
