@@ -36,6 +36,8 @@ def main():
     print(users)
     sorted_users_by_age = sorted(users)
     print(sorted_users_by_age)
+    sorted_users_by_name = sorted(sorted_users_by_age, key=lambda u: u.name)
+    print(sorted_users_by_name)
 
 
 if __name__ == '__main__':
