@@ -15,7 +15,7 @@ class User:
         return "%s %s" % (self.name, self.age)
 
     def __eq__(self, other):
-        return (self.namelast, self.age) == (other.name, other.age)
+        return (self.name, self.age) == (other.name, other.age)
 
     def __ne__(self, other):
         return not (self == other)
@@ -39,6 +39,7 @@ def main():
     #additional sorting by age
     sorted_users_by_name = sorted(sorted_users_by_age, key=lambda u: u.name)
     print(sorted_users_by_name)
+    print(User("mikhail", 57) == User("mikhail", 57))
 
 
 if __name__ == '__main__':
