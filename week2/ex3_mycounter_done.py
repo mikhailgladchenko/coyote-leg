@@ -19,7 +19,7 @@ class MyCounter:
         return sorted_items[:n]
 
     def most_common_heap(self, n):
-        return nlargest(n, self.mydict, key=lambda e: e[1])
+        return nlargest(n, self.mydict.items(), key=lambda e: e[1])
 
     def elements(self):
         return self.mydict.keys()
