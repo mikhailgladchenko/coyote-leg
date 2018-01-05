@@ -2,25 +2,26 @@
 
 
 def parse_url(url):
+
     string_splitted = url.split("&")
     params_dict = {}
-    key = value = ""
-    for entry in string_splitted:
+    filtered = [x for x in string_splitted if not x.startswith("utm_")]
+    for entry in filtered:
+        key = value = ""
         try:
             key = entry.split("=")[0]
             value = entry.split("=")[1]
         except IndexError:
             pass
-        if "utm_" not in key:
-            params_dict[key] = value
-    keys_original = (params_dict.keys())
-    new_url = ""
 
-    for key in keys_original:
+        params_dict[key] = value
 
-        new_url += "{}={}{}".format(key, params_dict[key], "&")
+    url_new = "&".join(["%s=%s" % (k, v) for k, v in params_dict.items()])
 
-    return None if new_url == str("=&") else new_url[0:-1]
+    if url_new == str("="):
+        return None
+    else:
+        return url_new
 
 
 def main():
