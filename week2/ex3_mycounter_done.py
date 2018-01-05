@@ -13,13 +13,8 @@ class MyCounter:
         return repr(self.mydict)
 
     def most_common(self, n):
-        counter = 0
-        mc = {}
-        for key, value in sorted(self.mydict.items(), key=lambda kv: kv[1], reverse=True):
-            if counter < n:
-                mc[key] = value
-            counter += 1
-        return mc
+        sorted_items = sorted(self.mydict.items(), key=lambda kv: kv[1], reverse=True)
+        return sorted_items[:n]
 
     def elements(self):
         return self.mydict.keys()
@@ -32,7 +27,7 @@ def main():
     print(emptycnt)
     cnt = MyCounter(words.split())
     print(cnt)
-    print(cnt.most_common(5))
+    print(cnt.most_common(3))
 
 
 if "__main__" == __name__:
