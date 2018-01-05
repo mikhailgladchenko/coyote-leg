@@ -1,3 +1,5 @@
+from heapq import nlargest
+
 class MyCounter:
 
     def __init__(self, values=None):
@@ -16,6 +18,9 @@ class MyCounter:
         sorted_items = sorted(self.mydict.items(), key=lambda kv: kv[1], reverse=True)
         return sorted_items[:n]
 
+    def most_common_heap(self, n):
+        return nlargest(n, self.mydict, key=lambda e: e[1])
+
     def elements(self):
         return self.mydict.keys()
 
@@ -28,7 +33,7 @@ def main():
     cnt = MyCounter(words.split())
     print(cnt)
     print(cnt.most_common(3))
-
+    print(cnt.most_common_heap(3))
 
 if "__main__" == __name__:
     main()
