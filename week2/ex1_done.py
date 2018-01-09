@@ -1,5 +1,7 @@
 # 1.	Write a function that will parse a url query string like "page=2&foo=bar&x=y&utm_source=ss&utm_content=ccc" and return a query string where all the params are sorted by their names like this "foo=bar&page=2&x=y" and all the "utm_" parameters are removed.
 
+import unittest
+
 
 def parse_url(url):
 
@@ -33,14 +35,13 @@ def parse_url(url):
     #     return url_new
 
 
-def main():
-    url = "page=2&foo=bar&x=y&utm_source=ss&utm_content=ccc"
-    print(url)
+class TestUrlMethods(unittest.TestCase):
+    def test_url_empty(self):
+        self.assertEqual(parse_url(""), None)
 
-    url_new = parse_url(url)
-    print(url_new)
-    print(parse_url(""))
+    def test_url_not_empty(self):
+        self.assertEqual(parse_url("page=2&foo=bar&x=y&utm_source=ss&utm_content=ccc"), "foo=bar&page=2&x=y")
 
 
 if __name__ == '__main__':
-    main()
+    unittest.main()
