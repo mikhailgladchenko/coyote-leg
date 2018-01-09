@@ -4,35 +4,14 @@ import unittest
 
 
 def parse_url(url):
-
-    string_splitted = url.split("&")
-    params_dict = {}
-    filtered = [x for x in string_splitted if not x.startswith("utm_")]
-    for entry in filtered:
-        key = value = ""
-        try:
-            key = entry.split("=")[0]
-            value = entry.split("=")[1]
-        except IndexError:
-            pass
-
-        params_dict[key] = value
-    keys_sorted = sorted(params_dict.keys())
-    url_new = "&".join(["%s=%s" % (k, params_dict[k]) for k in keys_sorted])
-
-    if url_new == str("="):
+    if url == "":
         return None
     else:
+        string_splitted = url.split("&")
+        filtered = [x for x in string_splitted if not x.startswith("utm_")]
+        sorted_alpha = sorted(filtered, key=lambda k: k[0])
+        url_new = "&".join(sorted_alpha)
         return url_new
-
-    # for key in keys_sorted:
-    #
-    #     new_url += "{}={}{}".format(key, params_dict[key], "&")
-
-    # if url_new== str("="):
-    #     return None
-    # else:
-    #     return url_new
 
 
 class TestUrlMethods(unittest.TestCase):
