@@ -3,7 +3,7 @@ class xrange:
     def __init__(self, *args):
 
         for i in list(args):
-            if not(type(i) is int):
+            if not(isinstance(i,int)):
                 raise TypeError("object cannot be interpreted as an integer")
         if len(args) == 1:
 
@@ -39,6 +39,7 @@ if __name__ == '__main__':
     print(list(r4))
     r5 = range(-10, 0)
     print(list(r5))
+    print(list(xrange(-10)))
 
 
 
