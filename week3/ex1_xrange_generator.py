@@ -1,6 +1,6 @@
 def xrange(*args):
     for i in list(args):
-        if not (type(i) is int):
+        if not (isinstance(i,int)):
             raise TypeError("object cannot be interpreted as an integer")
     current = 0
     high = 0
