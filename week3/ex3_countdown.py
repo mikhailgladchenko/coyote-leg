@@ -24,6 +24,7 @@ class countdown:
 
 
 if __name__ == '__main__':
+    #testing loops and list
     r = countdown(5)
     for i in r:
         for j in r:
