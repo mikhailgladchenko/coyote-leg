@@ -1,4 +1,4 @@
-class countdown:
+class Countdown:
 
     def __init__(self, end):
         self.current = self.end = end
@@ -12,10 +12,11 @@ class countdown:
             return old
 
     def __iter__(self):
-        return countdown(self.end)
+        return Countdown(self.end)
 
-    def get_list(self, n):
-        c = countdown(n)
+    @staticmethod
+    def get_list(n):
+        c = Countdown(n)
         result = []
         for k in c:
             for l in c:
@@ -24,8 +25,8 @@ class countdown:
 
 
 if __name__ == '__main__':
-    #testing loops and list
-    r = countdown(5)
+
+    r = Countdown(5)
     for i in r:
         for j in r:
             print(i, j)
