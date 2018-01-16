@@ -2,8 +2,8 @@
 def unique(mylist):
     dict_unique = {}
     unique_values = []
-    if mylist is not []:
-        unique_values = [dict_unique.setdefault(e, e) for e in mylist if e not in dict_unique]
+    # if mylist is not []:
+    unique_values = [dict_unique.setdefault(e, e) for e in mylist if e not in dict_unique]
 
     for v in unique_values:
         yield v
