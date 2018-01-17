@@ -1,31 +1,20 @@
-
-
-def all_perms_generator(elements):
-    if len(elements) <= 1:
-        yield elements
+def permutations(lst):
+    if len(lst) == 0:
+        yield ()
+    elif len(lst) == 1:
+        yield (lst[0],)
     else:
-
-        for perm in all_perms_generator(elements[1:]):
-
-            for i in range(len(elements)):
-                ret = tuple(perm[:i]) + tuple(elements[0:1]) + tuple(perm[i:])
-                yield ret
-
-
-def permutations(elements):
-    """generates the list of permutations in the same manner as itertools.permutations does"""
-
-    if elements == []:
-        return [()]
-    if len(elements) == 1:
-        return [(elements[0],)]
-    lst = []
-    for p in all_perms_generator(elements):
-        lst.append(p)
-    return sorted(lst)
+        for i in range(len(lst)):
+            x = lst[i]
+            xt = lst[:i] + lst[i+1:]
+            for j in permutations(xt):
+                yield tuple([x])+tuple(j)
 
 
 if __name__ == '__main__':
-    print(permutations([1, 2, 3]))
-    #print(permutations([]))
-    #print(permutations([1]))
+    for p in permutations([1, 2, 3]):
+        print(p)
+    for p in permutations([]):
+        print(p)
+    for p in permutations([1]):
+        print(p)
