@@ -25,7 +25,7 @@ class xrange:
         return self
 
     def __next__(self):
-        #added this check additionally
+       "for the new test case additional check"
         if self.current < self.high and self.step < 0:
             raise StopIteration
 
