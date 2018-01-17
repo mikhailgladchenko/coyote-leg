@@ -1,9 +1,9 @@
 
-class xrange:
+class Xrange:
     def __init__(self, *args):
 
         for i in list(args):
-            if not(isinstance(i,int)):
+            if not(isinstance(i, int)):
                 raise TypeError("object cannot be interpreted as an integer")
         if len(args) == 1:
 
@@ -25,7 +25,6 @@ class xrange:
         return self
 
     def __next__(self):
-       "for the new test case additional check"
         if self.current < self.high and self.step < 0:
             raise StopIteration
 
@@ -38,13 +37,13 @@ class xrange:
 
 
 if __name__ == '__main__':
-    print(list(xrange(10)))
+    print(list(Xrange(10)))
     r4 = range(10, 0, -1)
     print(list(r4))
     r5 = range(-10, 0)
     print(list(r5))
-    print(list(xrange(-10)))
-    print(list(xrange(10,122,-3)))
+    print(list(Xrange(-10)))
+    print(list(Xrange(10, 122, -3)))
 
 
 
