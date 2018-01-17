@@ -42,6 +42,8 @@ class TestxrangeIterator(unittest.TestCase):
         self.assertEqual(list(range(-10, 0)), [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1])
     def test_xrange_list7(self):
         self.assertEqual(list(range(-10)), [])
+    def test_xrange_yan1(self):
+        self.assertEqual(list(xrange(10, 122, -3)), list(range(10, 122, -3)))
 
 
 if __name__ == '__main__':
