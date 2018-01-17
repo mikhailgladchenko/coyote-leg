@@ -1,10 +1,8 @@
 
 def unique(mylist):
     dict_unique = {}
-    unique_values = [dict_unique.setdefault(e, e) for e in mylist if e not in dict_unique]
-
-    for v in unique_values:
-        yield v
+    for el in [dict_unique.setdefault(e, e) for e in mylist if e not in dict_unique]:
+        yield el
 
 
 if __name__ == '__main__':
