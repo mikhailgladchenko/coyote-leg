@@ -1,7 +1,8 @@
 
-def unique(lst):
-    for i,x in enumerate(lst):
-        if x not in lst[0:i]: yield x
+def unique(mylst):
+    for i, x in enumerate(mylst):
+        if x not in mylst[0:i]:
+            yield x
 
 
 if __name__ == '__main__':
