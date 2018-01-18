@@ -20,17 +20,17 @@ class TestxrangeIterator(unittest.TestCase):
 
     def test_exception1(self):
         it = Xrange(1)
-        first = next(it)
+        next(it)
         with self.assertRaises(StopIteration):
             next(it)
 
     def test_exception2(self):
         with self.assertRaises(TypeError):
-            ret = list(Xrange(0, 1, 0.1))
+            print(list(Xrange(0, 1, 0.1)))
 
     def test_exception3(self):
         with self.assertRaises(TypeError):
-            ret = list(Xrange(1, 10, 2, 2))
+            print(list(Xrange(1, 10, 2, 2)))
 
     def test_xrange_list4(self):
         self.assertEqual(list(Xrange(1)), [0])
@@ -40,9 +40,10 @@ class TestxrangeIterator(unittest.TestCase):
 
     def test_xrange_list6(self):
         self.assertEqual(list(range(-10, 0)), [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1])
+
     def test_xrange_list7(self):
         self.assertEqual(list(range(-10)), [])
-    #new test case to check memory error
+       
     def test_xrange_yan1(self):
         self.assertEqual(list(Xrange(10, 122, -3)), list(range(10, 122, -3)))
 
