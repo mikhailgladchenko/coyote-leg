@@ -1,8 +1,7 @@
 
-def unique(mylist):
-    dict_unique = {}
-    for el in [dict_unique.setdefault(e, e) for e in mylist if e not in dict_unique]:
-        yield el
+def unique(lst):
+    for i,x in enumerate(lst):
+        if x not in lst[0:i]: yield x
 
 
 if __name__ == '__main__':
