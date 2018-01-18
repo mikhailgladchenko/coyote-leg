@@ -23,11 +23,11 @@ class TestxrangeIterator(unittest.TestCase):
 
     def test_exception1(self):
         with self.assertRaises(TypeError):
-            ret = list(xrange(0, 1, 0.1))
+            print(list(xrange(0, 1, 0.1)))
 
     def test_exception2(self):
         with self.assertRaises(TypeError):
-            ret = list(xrange(0, 10, 2, 2))
+            print(list(xrange(0, 10, 2, 2)))
 
     def test_xrange_list5(self):
         self.assertEqual(list(xrange(10, 0, -1)), [10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
@@ -40,6 +40,7 @@ class TestxrangeIterator(unittest.TestCase):
 
     def test_xrange_yan2(self):
         self.assertEqual(list(xrange(-10)), list(range(-10)))
+
 
 if __name__ == '__main__':
     unittest.main()
