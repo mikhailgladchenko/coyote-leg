@@ -25,14 +25,14 @@ def xrange(*args):
 
     if step>0:
         while current < high:
-            old=current
+            yield current
             current+=step
-            yield old
+
     else:
         while current>0:
-            old=current
+            yield current
             current+=step
-            yield old
+
 
 if __name__ == '__main__':
     print(list(xrange(10)))
