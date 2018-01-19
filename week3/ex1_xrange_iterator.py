@@ -25,10 +25,7 @@ class Xrange:
         return self
 
     def __next__(self):
-        if self.current < self.high and self.step < 0:
-            raise StopIteration
-
-        if self.current >= self.high:
+        if self.current >= self.high and self.step > 0 or (self.current <= self.high and self.step < 0):
             raise StopIteration
         else:
             old = self.current
@@ -44,6 +41,7 @@ if __name__ == '__main__':
     print(list(r5))
     print(list(Xrange(-10)))
     print(list(Xrange(10, 122, -3)))
+    print(list(Xrange(-10, -20, -1)))
 
 
 
