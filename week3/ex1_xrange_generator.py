@@ -29,7 +29,7 @@ def xrange(*args):
             current+=step
 
     else:
-        while current>0:
+        while current>high:
             yield current
             current+=step
 
@@ -42,6 +42,7 @@ if __name__ == '__main__':
     print(list(xrange(10 , 2)))
     print(list(xrange(0, 10, 2)))
     print(list(xrange(-10)))
+    print(list(xrange(-10, -20, -1)))
     #print(list(xrange(10, 0, -1)))
     #print(list(xrange(0, 10, 2)))
 
