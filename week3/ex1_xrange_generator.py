@@ -20,6 +20,8 @@ def xrange(*args):
         high = args[1]
 
         step = args[2]
+        if step == 0:
+            raise ValueError("xrange() arg 3 must not be zero")
     else:
         raise TypeError("xrange expected at most 3 arguments, got %s" % len(args))
 
@@ -43,6 +45,7 @@ if __name__ == '__main__':
     print(list(xrange(0, 10, 2)))
     print(list(xrange(-10)))
     print(list(xrange(-10, -20, -1)))
+    print(list(xrange(10, 122, -3)))
     #print(list(xrange(10, 0, -1)))
     #print(list(xrange(0, 10, 2)))
 
