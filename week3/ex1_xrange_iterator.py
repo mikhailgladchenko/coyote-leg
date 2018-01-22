@@ -18,7 +18,7 @@ class Xrange:
             self.current = args[0]
             self.high = args[1]
             self.step = args[2]
-            if self.step==0:
+            if self.step == 0:
                 raise ValueError("xrange() arg 3 must not be zero")
         else:
             raise TypeError("xrange expected at most 3 arguments, got %s" % len(args))
@@ -44,7 +44,7 @@ if __name__ == '__main__':
     print(list(Xrange(-10)))
     print(list(Xrange(10, 122, -3)))
     print(list(Xrange(-10, -20, -1)))
-    print(list(Xrange(122,-10,0)))
+    print(list(Xrange(122, -10, 0)))
 
 
 
