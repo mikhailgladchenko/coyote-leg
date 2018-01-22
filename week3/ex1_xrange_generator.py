@@ -25,15 +25,15 @@ def xrange(*args):
     else:
         raise TypeError("xrange expected at most 3 arguments, got %s" % len(args))
 
-    if step>0:
+    if step > 0:
         while current < high:
             yield current
-            current+=step
+            current += step
 
     else:
-        while current>high:
+        while current > high:
             yield current
-            current+=step
+            current += step
 
 
 if __name__ == '__main__':
@@ -41,16 +41,10 @@ if __name__ == '__main__':
     print(list(xrange(2, 20)))
     print(list(xrange(0, 20, 2)))
     print(list(xrange(-10, 0, 1)))
-    print(list(xrange(10 , 2)))
+    print(list(xrange(10, 2)))
     print(list(xrange(0, 10, 2)))
     print(list(xrange(-10)))
     print(list(xrange(-10, -20, -1)))
     print(list(xrange(10, 122, -3)))
-    #print(list(xrange(10, 0, -1)))
-    #print(list(xrange(0, 10, 2)))
 
-
-
-
-    #print(list(xrange(10, 0, -1)))
 
