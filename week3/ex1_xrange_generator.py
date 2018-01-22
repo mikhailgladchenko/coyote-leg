@@ -2,8 +2,7 @@ def xrange(*args):
     for arg in args:
         if not (isinstance(arg, int)):
             raise TypeError("object cannot be interpreted as an integer")
-    current = 0
-    high = 0
+
     step = 1
     if len(args) == 1:
 
