@@ -40,12 +40,13 @@ class TestxrangeIterator(unittest.TestCase):
 
     def test_xrange_yan2(self):
         self.assertEqual(list(xrange(-10)), list(range(-10)))
+
     def test_xrange_yan3(self):
-        self.assertEqual(list(xrange(-10,-20,-1)), list(range(-10,-20,-1)))
+        self.assertEqual(list(xrange(-10, -20, -1)), list(range(-10, -20, -1)))
 
     def test_exception3(self):
         with self.assertRaises(ValueError):
-            print(list(xrange(122,-10,0)))
+            print(list(xrange(122, -10, 0)))
 
 
 if __name__ == '__main__':
