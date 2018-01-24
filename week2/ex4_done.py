@@ -15,13 +15,13 @@ class User:
         return "%s %s" % (self.name, self.age)
 
     def __eq__(self, other):
-        return (self.namelast, self.age) == (other.name, other.age)
+        return (self.name, self.age) == (other.name, other.age)
 
     def __ne__(self, other):
         return not (self == other)
 
     def __lt__(self, other):
-        return (self.name, self.age) < (other.name, other.age)
+        return self.age < other.age
 
     @staticmethod
     def cmp(x, y):
@@ -32,9 +32,14 @@ class User:
 
 
 def main():
-    users = [User("mikhail", 57), User("marina", 55), User("alexandra", 19)]
+    users = [User("mikhail", 57), User("marina", 55), User("alexandra", 19), User("mikhail", 31)]
     print(users)
-    print(sorted(users))
+    sorted_users_by_age = sorted(users)
+    print(sorted_users_by_age)
+    #additional sorting by age
+    sorted_users_by_name = sorted(sorted_users_by_age, key=lambda u: u.name)
+    print(sorted_users_by_name)
+    print(User("mikhail", 57) == User("mikhail", 57))
 
 
 if __name__ == '__main__':

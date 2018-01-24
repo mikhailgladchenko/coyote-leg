@@ -1,31 +1,31 @@
 # 1.	Write a function that will parse a url query string like "page=2&foo=bar&x=y&utm_source=ss&utm_content=ccc" and return a query string where all the params are sorted by their names like this "foo=bar&page=2&x=y" and all the "utm_" parameters are removed.
 
+import unittest
+
 
 def parse_url(url):
-    string_splitted = url.split("&")
-    params_dict = {}
-    for entry in string_splitted:
-        key = entry.split("=")[0]
-        value = entry.split("=")[1]
-        if "utm_" not in key:
-            params_dict[key] = value
-    keys_sorted = sorted(params_dict.keys())
-    new_url = ""
+    if url == "":
+        return None
+    else:
+        string_splitted = url.split("&")
+        filtered = [x for x in string_splitted if not x.startswith("utm_")]
+        splitted = [x.split("=") for x in filtered]
+        sorted_alpha = sorted(splitted, key=lambda k: k[0])
 
-    for key in keys_sorted:
-
-        new_url += "{}={}{}".format(key, params_dict[key], "&")
-
-    return new_url[0:-1]
+        url_new = "&".join("{}={}".format(k, v) for k, v in sorted_alpha)
+        return url_new
 
 
-def main():
-    url = "page=2&foo=bar&x=y&utm_source=ss&utm_content=ccc"
-    print(url)
+class TestUrlMethods(unittest.TestCase):
+    def test_url_empty(self):
+        self.assertEqual(parse_url(""), None)
 
-    url_new = parse_url(url)
-    print(url_new)
+    def test_url_not_empty1(self):
+        self.assertEqual(parse_url("page=2&foo=bar&x=y&utm_source=ss&utm_content=ccc"), "foo=bar&page=2&x=y")
+
+    def test_url_not_empty2(self):
+        self.assertEqual(parse_url("apple=2&axile=bar&abbey=y&utm_source=ss&utm_content=ccc"), "abbey=y&apple=2&axile=bar")
 
 
 if __name__ == '__main__':
-    main()
+    unittest.main()
