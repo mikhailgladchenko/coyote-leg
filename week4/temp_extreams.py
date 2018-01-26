@@ -66,7 +66,7 @@ def main():
             sys.exit(1)
         else:
             data = find_max_and_min_temp_by_id(station_id, data_file_path)
-            if not(data is None):
+            if data is not None:
                 print("Max Temperature %s observed on %s" % (data[0][1], data[0][0]))
                 print("Min Temperature %s observed on %s" % (data[1][1], data[1][0]))
 
