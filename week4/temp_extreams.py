@@ -10,16 +10,15 @@ def find_station_id_by_name(station, file):
         raise ValueError("stations file name is empty")
     if not os.path.exists(file):
         raise ValueError('file %s  does not exist' % file)
-    else:
-        ret = None
-        with open(file, "rt") as f:
-            for line in f:
-                station_id = line[0:11]
-                nm = line[41:70].strip()
-                if nm == station:
-                    ret = station_id
+    ret = None
+    with open(file, "rt") as f:
+        for line in f:
+            station_id = line[0:11]
+            nm = line[41:70].strip()
+            if nm == station:
+                ret = station_id
 
-        return ret
+    return ret
 
 
 def find_max_and_min_temp_by_id(station_id, file):
