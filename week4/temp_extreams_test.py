@@ -57,13 +57,13 @@ class TestFiles(unittest.TestCase):
 
     def test_value5(self):
         station_id = "LH000026730"
-        data_file_name = "c:/temp/week4/2017.csv"
-        self.assertEqual(find_max_and_min_temp_by_id(station_id, data_file_name)[0][1], 28.6)
+        data_file_name = "c:/temp/week4/sample.csv"
+        self.assertEqual(find_max_and_min_temp_by_id(station_id, data_file_name)[0][1], 40.0)
 
     def test_value6(self):
         station_id = "LH000026730"
-        data_file_name = "c:/temp/week4/2017.csv"
-        self.assertEqual(find_max_and_min_temp_by_id(station_id, data_file_name)[1][1], -23.5)
+        data_file_name = "c:/temp/week4/sample.csv"
+        self.assertEqual(find_max_and_min_temp_by_id(station_id, data_file_name)[1][1], -40.0)
 
 
 if __name__ == '__main__':
